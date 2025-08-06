@@ -413,28 +413,28 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 172660636978121518}
-    m_Position: {x: 1680, y: -200, z: 0}
+    m_Position: {x: 1470, y: -20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4488542800102229498}
-    m_Position: {x: 1440, y: -200, z: 0}
+    m_Position: {x: 1240, y: 60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 585240534604135858}
     m_Position: {x: 1440, y: -560, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4337971760478924107}
-    m_Position: {x: 1680, y: -260, z: 0}
+    m_Position: {x: 1960, y: -100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8243696572917403494}
-    m_Position: {x: 1440, y: -260, z: 0}
+    m_Position: {x: 1650, y: -110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2265467357513248840}
     m_Position: {x: 1440, y: -320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5922884024154496458}
-    m_Position: {x: 1680, y: -140, z: 0}
+    m_Position: {x: 760, y: -100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1322856064231702826}
-    m_Position: {x: 1440, y: -140, z: 0}
+    m_Position: {x: 640, y: -220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8130494329141414273}
     m_Position: {x: 1440, y: -440, z: 0}
@@ -449,13 +449,13 @@ AnimatorStateMachine:
     m_Position: {x: 1070, y: -390, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5566433465406897433}
-    m_Position: {x: 1920, y: -260, z: 0}
+    m_Position: {x: 1800, y: -210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -643927935719208216}
-    m_Position: {x: 1920, y: -200, z: 0}
+    m_Position: {x: 1320, y: -110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2612670472765857921}
-    m_Position: {x: 1920, y: -140, z: 0}
+    m_Position: {x: 910, y: -30, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -502,7 +502,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
