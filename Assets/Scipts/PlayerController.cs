@@ -63,5 +63,6 @@ public class PlayerController : MonoBehaviour
     {
         anim.SetBool("Walk", (direction.x != 0 || direction.z != 0) && currentSpeed == movementSpeed);
         anim.SetBool("Run", (direction.x != 0 || direction.z != 0) && currentSpeed == shiftSpeed);
+        anim.SetBool("Wiggling", direction.x == 0 && direction.z == 0);
     }
 }

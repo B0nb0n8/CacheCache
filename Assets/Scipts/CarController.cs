@@ -17,22 +17,33 @@ public class CarController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-       Vector3 Target = wayPoints[currentChekpoint].position;
-       Vector3 newPos = Vector3.MoveTowards(gameObject.transform.position, Target, speed * Time.fixedDeltaTime);
+        MoveCar();
 
-       rb.MovePosition(newPos);
-
-        if (Vector3.Distance(gameObject.transform.position, wayPoints[currentChekpoint].position) <=  chekpointDistance)
+        if (Vector3.Distance(gameObject.transform.position, wayPoints[currentChekpoint].position) <= chekpointDistance)
         {
-            currentChekpoint++; //currentChekpoint = currentChekpoint + 1
-            if (currentChekpoint >= wayPoints.Length - 1)
-            {
-                currentChekpoint = 0;
-            }
+            TurnCar();
+        }
+    }
+
+    private void MoveCar()
+    {
+        Vector3 Target = wayPoints[currentChekpoint].position;
+        Vector3 newPos = Vector3.MoveTowards(gameObject.transform.position, Target, speed * Time.fixedDeltaTime);
+        rb.MovePosition(newPos);
+    }
+
+    private void TurnCar()
+    {
+        currentChekpoint++;
+        if (currentChekpoint >= wayPoints.Length)
+        {
+            currentChekpoint = 0;
         }
 
+        Transform target = wayPoints[currentChekpoint].transform;
+        transform.LookAt(target);
     }
+
 }
