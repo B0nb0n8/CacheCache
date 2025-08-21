@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +13,14 @@ public class PlayerController : MonoBehaviour
     Vector3 direction;
     float currentSpeed;
     float stamina = 5f;
+
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private Image crosshairImage;
+    [SerializeField] private float rayDistance = 100f;
+    private Color defaultColor = Color.white;
+    private Color highlightColor = Color.green;
+
+    [SerializeField] GameManager gameManager;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -57,6 +66,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(transform.position + direction * currentSpeed * Time.fixedDeltaTime);
+        DetectDog();
     }
 
     private void ChangeAnimations()
@@ -65,4 +75,29 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("Run", (direction.x != 0 || direction.z != 0) && currentSpeed == shiftSpeed);
         anim.SetBool("Wiggling", direction.x == 0 && direction.z == 0);
     }
+
+    private void DetectDog()
+    {
+        Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
+        Ray ray = mainCamera.ScreenPointToRay(screenCenter);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, rayDistance))
+        {
+            if (hit.collider.CompareTag("HiddenDog"))
+            {
+                crosshairImage.color = highlightColor;
+                Destroy(hit.collider.gameObject);
+                gameManager.ChangeScore(); 
+            }
+            else
+            {
+                crosshairImage.color = defaultColor;
+            }
+        }
+        else
+        {
+            crosshairImage.color = defaultColor;
+        }
+    }
+
 }
